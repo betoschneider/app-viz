@@ -10,6 +10,7 @@ services:
       - ./html:/usr/share/nginx/html  # Mapeia um diretório local para o diretório do nginx
     networks:
       - app_network
+    restart: always  # Garantir que o container seja reiniciado após uma reinicialização do sistema
 
 networks:
   app_network:
