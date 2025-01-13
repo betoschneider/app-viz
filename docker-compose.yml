@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    image: nginx:latest  # Aqui você pode usar a imagem do seu servidor ou aplicação.
+    container_name: my_web_app
+    ports:
+      - "80:80"  # Mapeia a porta 80 do container para a porta 80 do host
+    volumes:
+      - ./html:/usr/share/nginx/html  # Mapeia um diretório local para o diretório do nginx
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

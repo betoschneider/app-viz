@@ -1,0 +1,13 @@
+app/
+├── main.py                  # Arquivo principal para rodar o Streamlit
+├── database/
+│   ├── __init__.py          # Inicializa o módulo database
+│   ├── db_connection.py     # Gerencia a conexão com o SQLite
+│   ├── models.py            # Define as classes que mapeiam os dados
+├── repositories/
+│   ├── __init__.py          # Inicializa o módulo repositories
+│   ├── application_repo.py  # Implementa o repositório para as aplicações
+├── services/
+│   ├── __init__.py          # Inicializa o módulo services
+│   ├── application_service.py # Lógica de negócios relacionada às aplicações
+└── requirements.txt         # Dependências do projeto (ex.: streamlit, sqlite)
