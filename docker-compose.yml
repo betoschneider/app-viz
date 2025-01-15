@@ -1,17 +1,22 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  app:
-    image: nginx:latest  # Aqui você pode usar a imagem do seu servidor ou aplicação.
-    container_name: my_web_app
-    ports:
-      - "80:80"  # Mapeia a porta 80 do container para a porta 80 do host
+  streamlit:
+    image: python:3.10
+    container_name: streamlit_app
+    build: .
+    command: streamlit run app.py
     volumes:
-      - ./html:/usr/share/nginx/html  # Mapeia um diretório local para o diretório do nginx
+      - .:/app  # Monta o diretório atual no container
+    ports:
+      - "80:8501"  # Mapeia a porta 80 do host para a porta 8501 do container
+    working_dir: /app  # Define o diretório de trabalho
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
     networks:
-      - app_network
-    restart: always  # Garantir que o container seja reiniciado após uma reinicialização do sistema
+      - streamlit_network
+    restart: always
 
 networks:
-  app_network:
+  streamlit_network:
     driver: bridge
