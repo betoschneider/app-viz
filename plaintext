@@ -10,4 +10,6 @@ app/
 ├── services/
 │   ├── __init__.py          # Inicializa o módulo services
 │   ├── application_service.py # Lógica de negócios relacionada às aplicações
-└── requirements.txt         # Dependências do projeto (ex.: streamlit, sqlite)
+├── requirements.txt         # Dependências do projeto (ex.: streamlit, sqlite)
+├── Dockerfile
+└── docker-compose.yml

@@ -1,20 +1,17 @@
-# Usando a imagem oficial do Python
+# Use uma imagem oficial do Python como base
 FROM python:3.12
 
-# Setando o diretório de trabalho no container
+# Defina o diretório de trabalho
 WORKDIR /app
 
-# Copiando o arquivo requirements.txt para dentro do container
+# Copie o arquivo requirements.txt para o diretório de trabalho
 COPY requirements.txt /app/
 
-# Instalando as dependências do requirements.txt
+# Instale as dependências
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiando o restante dos arquivos para o container
-COPY . /app/
+# Copie todos os arquivos do diretório atual para o diretório de trabalho
+COPY . /app
 
-# Expondo a porta 8501 para o Streamlit
-EXPOSE 8501
-
-# Comando para rodar a aplicação Streamlit
+# Defina o comando para rodar o Streamlit
 CMD ["streamlit", "run", "main.py"]
